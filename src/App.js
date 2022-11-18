@@ -1,7 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import  React  from 'react';
 
 function App() {
+  const age =18;
+  const name ='tu';
+  const isFemale = true;
+  const student ={
+    name: 'thanhtu'
+  };
+  const list = ['red','blue','green']
   return (
     <div className="App">
       <header className="App-header">
@@ -15,8 +23,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          thanhtu
         </a>
+        <p>xin chao {name}+ {age}+ {isFemale ? 'Male':'fermale'}</p>
+
       </header>
     </div>
   );
