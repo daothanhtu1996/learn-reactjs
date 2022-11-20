@@ -1,19 +1,20 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
-import TodoFeature from "./component/features/todo/component";
+import AlbumFeature from "./component/features/Album/component";
 
 function App() {
-  const age = 18;
-  const name = "tu";
-  const isFemale = false;
-  const student = {
-    name: "thanhtu",
-  };
-  const list = ["red", "blue", "green"];
+  // const age = 18;
+  // const name = "tu";
+  // const isFemale = false;
+  // const student = {
+  //   name: "thanhtu",
+  // };
+  // const list = ["red", "blue", "green"];
   return (
     <div className="App">
-      <TodoFeature/>
+      {/* <TodoFeature/> */}
+     <AlbumFeature></AlbumFeature>
+   
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
