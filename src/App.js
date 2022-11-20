@@ -3,6 +3,8 @@ import React from "react";
 import AlbumFeature from "./component/features/Album/component";
 import ColorBox from "./component/features/Count/ColorBox";
 import Counter from "./component/features/Count/Counter";
+import TodoFeature from "./component/features/todo/component";
+
 
 function App() {
   // const age = 18;
@@ -14,9 +16,9 @@ function App() {
   // const list = ["red", "blue", "green"];
   return (
     <div className="App">
-      <ColorBox />
-      <Counter />
-      {/* <TodoFeature/> */}
+      {/* <ColorBox />
+      <Counter /> */}
+      <TodoFeature/>
      {/* <AlbumFeature></AlbumFeature> */}
    
       {/* <header className="App-header">
