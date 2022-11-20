@@ -1,6 +1,8 @@
 import "./App.css";
 import React from "react";
 import AlbumFeature from "./component/features/Album/component";
+import ColorBox from "./component/features/Count/ColorBox";
+import Counter from "./component/features/Count/Counter";
 
 function App() {
   // const age = 18;
@@ -12,8 +14,10 @@ function App() {
   // const list = ["red", "blue", "green"];
   return (
     <div className="App">
+      <ColorBox />
+      <Counter />
       {/* <TodoFeature/> */}
-     <AlbumFeature></AlbumFeature>
+     {/* <AlbumFeature></AlbumFeature> */}
    
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
