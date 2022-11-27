@@ -4,10 +4,30 @@ import data from "../../../data.json"
 TodoFeature.propTypes = {};
 
 function TodoFeature(props) {
-  const initTodoList =data;
-  const listItems = initTodoList
+  const uniqueSet = new Set(data);
+  console.log('step1',uniqueSet)
+
+  const backToArray = [...uniqueSet];
+
+  console.log('step2',backToArray)
+
+//   const array = data;
+
+// Array.from(new Set(data));
+
+// console.log('step3',array)
+
+// const array = data;
+
+// array.filter((item, index) => array.indexOf(item) !== index);
+
+// console.log('step3',array)
+
+
+
+  const listItems = backToArray
     .slice(0, 24)
-    .map((initTodoList) => <li>{initTodoList}</li>);
+    .map((backToArray) => <li>{backToArray}</li>);
   console.log("1", listItems);
 
   const items = listItems.slice(0, 18).map((listItems) => <li>{listItems}</li>);
