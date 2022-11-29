@@ -1,73 +1,151 @@
+import { ContactlessOutlined } from "@mui/icons-material";
 import React, { useState } from "react";
-import data from "../../../data.json"
+import data from "../../../data.json";
 
 TodoFeature.propTypes = {};
 
 function TodoFeature(props) {
   const uniqueSet = new Set(data);
-  console.log('step1',uniqueSet)
 
   const backToArray = [...uniqueSet];
 
-  console.log('step2',backToArray)
+  var keys = backToArray[0];
 
-//   const array = data;
+  //vacate keys from main array
+  var newArr = backToArray.slice(1, backToArray.length);
 
-// Array.from(new Set(data));
+  var formatted = [],
+  data = newArr,
+  cols = keys,
+  l = cols.length;
+  for (var i=0; i < data.length; i++) {
+          var d = data[i],
+                  o = {};
+          for (var j=0; j < l; j++)
+                  o[cols[j]] = d[j];
+          formatted.push(o);
+  }
+  console.log("sssssssss", formatted);
 
-// console.log('step3',array)
+  // Lặp theo hàng
+  for (var i = 0; i < backToArray.lenght; i++) {
+    // Lặp theo cột, số cộ từ 0 -> số lượng phần tử của hàng i
+    for (var j = 0; j < backToArray[i].length; j++) {
+      console.log("aaaaaaaaaa", backToArray[i][j]);
+    }
+  }
 
-// const array = data;
+  // var aa = backToArray,
+  //   chunk;
 
-// array.filter((item, index) => array.indexOf(item) !== index);
+  // while (aa.length > 0) {
+  //   chunk = aa.splice(0, );
 
-// console.log('step3',array)
+  //   console.log('chunk',chunk);
+  // }
 
+  //   const array = data;
 
+  // Array.from(new Set(data));
+
+  // console.log('step3',array)
+
+  // const array = data;
+
+  // array.filter((item, index) => array.indexOf(item) !== index);
+
+  // console.log('step3',array)
+
+  // console.log("listWithOnly3Items", listWithOnly24Items);
+  const originalArr = backToArray;
+  const splittedArray = [];
+  while (originalArr.length > 0) {
+    splittedArray.push(originalArr.splice(0, 24));
+  }
+
+  console.log("splittedArray", splittedArray);
+
+  const list3 = originalArr;
+  const listWithOnly3Items = list3.filter((element, index) => index < 3);
+  console.log("1sssss", listWithOnly3Items);
+
+  // const originalArr2 = splittedArray;
+  // const splittedArray2 = [];
+  // while (originalArr2.length > 0) {
+  //   splittedArray2.push(originalArr2.splice(0, 18));
+  // }
 
   const listItems = backToArray
     .slice(0, 24)
     .map((backToArray) => <li>{backToArray}</li>);
-  console.log("1", listItems);
 
-  const items = listItems.slice(0, 18).map((listItems) => <li>{listItems}</li>);
-  console.log("2", items);
+  // const items = listItems.slice(0, 18).map((listItems) => <li>{listItems}</li>);
+  // console.log("2", items);
 
-  const detailItems = items.slice(1, 7).map((items) => <li>{items}</li>);
-  console.log("3", detailItems);
+  // const detailItems = items.slice(1, 7).map((items) => <li>{items}</li>);
+  // console.log("3", detailItems);
 
-  const a = [0, 10, 1, 99, 9, 8, 79, 91, 22, 32, 12];
+  const a = splittedArray.splice(0, 6);
+  const b = splittedArray.splice(7, 6);
 
-  let singleNumberArray = [];
-  let total;
+  const c = splittedArray.splice(11, 6);
 
-  a.forEach(
-    (v) =>
-      (singleNumberArray = singleNumberArray.concat(v.toString().split("")))
+  const table = new Array(6);
+
+  table[0] = [a];
+
+  console.log("table", table);
+  // const a = [0, 10, 1, 99, 9, 8, 79, 91, 22, 32, 12];
+
+  // let singleNumberArray = [];
+  // let total;
+
+  // a.forEach(
+  //   (v) =>
+  //     (singleNumberArray = singleNumberArray.concat(v.toString().split("")))
+  // );
+  // singleNumberArray = singleNumberArray.sort((a, b) => {
+  //   return b - a;
+  // });
+  // total = singleNumberArray.join("");
+
+  const list = splittedArray;
+  const listWithOnly24Items = list.filter(
+    (element, index) => list.indexOf(index) < 7
   );
-  singleNumberArray = singleNumberArray.sort((a, b) => {
-    return b - a;
-  });
-  total = singleNumberArray.join("");
-
-  console.log(total);
-
+  console.log("listWithOnly24Itemssss", listWithOnly24Items);
   return (
     <div>
-      <h3>
-        2.Tạo 1 danh sách gồm 24 phần tử không trùng lặp nhau từ file JSON cho
-        trước. . .
-      </h3>
-      <h3>Từ danh sách 24 phần tử </h3>
-      <ul>{listItems}</ul>
+      {/* {splittedArray.map((items, index) => {
+        return (
+          <ol>
+            {items.map((subItems, sIndex) => {
+              return <li> {subItems} </li>;
+            })}
+          </ol>
+        );
+      })} */}
 
-      <h3>tạo ra 1 danh sách gồm 18 phần tử không trùng lặp</h3>
-      <ul>{items}</ul>
-
-      <h3>Từ 18 phần tử vừa lấy được tạo thành 1 danh sách gồm 6 phần tử</h3>
-      <ul>{detailItems}</ul>
-
-      
+      <table>
+        {/* <thead>
+          <tr>
+            {students[0].map((item, index) => {
+              return <th>{item}</th>;
+            })}
+          </tr>
+        </thead> */}
+        <tbody>
+          {splittedArray.slice(0, splittedArray.length).map((item, index) => {
+            return (
+              <tr>
+                <td key={index[0]}>{item[0]}</td>
+                <td key={index[1]}>{item[1]}</td>
+                <td key={index[2]}>{item[2]}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
