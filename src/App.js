@@ -1,58 +1,35 @@
 import "./App.css";
 import React from "react";
-import AlbumFeature from "./component/features/Album/component";
-import ColorBox from "./component/features/Count/ColorBox";
-import Counter from "./component/features/Count/Counter";
+import { Route ,Routes,Link} from "react-router-dom";
 import TodoFeature from "./component/features/todo/component";
-
+import AlbumFeature from "./component/features/Album/component";
+import Home from "./component/features/Home";
+import PageHome from "./Page/Home";
 
 function App() {
-  // const age = 18;
-  // const name = "tu";
-  // const isFemale = false;
-  // const student = {
-  //   name: "thanhtu",
-  // };
-  // const list = ["red", "blue", "green"];
   return (
     <div className="App">
-      {/* <ColorBox />
-      <Counter /> */}
-      <TodoFeature/>
-     {/* <AlbumFeature></AlbumFeature> */}
-   
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        ></a>
-        <p>
-          xin chao {name}+ {age}+ {isFemale ? "Male" : "fermale"}
-        </p>
-        {isFemale ? <p>Male</p> : <p>fermale</p>}
-        {isFemale && <p>Male</p>}
-        {!isFemale && <p>fermale</p>}  
-        {isFemale && (
-          <>
-            <p>Male</p>
-            <p>Male</p>
-            <p>Male</p>
-          </>
-        )}
-        <p>{student.name}</p>
-        <ul>
-          {list.map((color) => (
-            <li style={{ color }}>{color}</li>
-          ))}
-        </ul>
-      </header> */}
-    </div>
+    <ul >
+    <li>
+      <Link to="/">Home</Link>
+    </li>
+    <li>
+      <Link to="/todo">About Us</Link>
+    </li>
+    <li>
+      <Link to="/album">Contact Us</Link>
+    </li>
+    <li>
+      <Link to="/home">PageHOme</Link>
+    </li>
+    </ul>
+  <Routes>
+      <Route exact path='/' element={<Home/>}></Route>
+      <Route exact path='/home' element={<PageHome/>}></Route>
+      <Route exact path='/album' element={< AlbumFeature />}></Route>
+      <Route exact path='/todo' element={< TodoFeature />}></Route>
+  </Routes>
+  </div>
   );
 }
 
